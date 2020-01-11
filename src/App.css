@@ -23,16 +23,29 @@ li {
   margin: 5px;
 
 }
-  a {
+ ul a {
     text-decoration: none;
     color: #fff;
     transition: .5s ease;
   }
-  a:hover {
+ ul a:hover {
     color: rgb(188, 170, 255);
   }
 
 .cardplaceholder {
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.pageOrder span {
+  padding: 2px ;
+  margin: 3px;
+  cursor: pointer;
+}
+.pageOrder span:link ,
+.pageOrder span:visited ,
+.pageOrder span:active
+
+{ 
+  color: #7eadf5;
 }
