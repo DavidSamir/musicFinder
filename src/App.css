@@ -49,3 +49,45 @@ grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 { 
   color: #7eadf5;
 }
+
+.searchCard {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 13px 30px;
+  border: 1px solid #dadada20;
+  border-radius: 10px;
+  margin: 19px auto;
+  text-align: left;
+  display: grid;
+  /* justify-content: center; */
+  align-items: center;
+  grid-template-columns: auto 140px;
+}
+.searchCard img  { 
+max-width: 100%; 
+}
+
+  input[type="search" i] {
+  background: transparent;
+  border: 2px solid #fafafa26;
+  border-radius: 6px;
+  padding: 10px;
+  min-width: 200px;
+  max-width: 500px;
+  width: 80%;
+  color: #fff;
+  font-size: 18px;
+}
+
+
+.popupbox-wrapper {
+  box-shadow: unset !important;
+}
+.popupbox-overlay {
+  background-color: unset !important;
+}
+h6 {
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+}

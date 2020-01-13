@@ -1,4 +1,4 @@
-import React, { useEffect, useState , setCount } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css';
 import Cards from './cards/Cards';
 import Search from './search/Search';
@@ -11,67 +11,41 @@ import {
 } from "react-router-dom";
 
 const KEY = `9a61b8LdPBMNwodI8AersCSsZl44gAEdWrpqrVzt9fkClmbpOqBSEQGJ`;
-let srh_v = 'alter';
 
-const App = () => {
+const App = () => { 
   let [artistVal, setArtistVal] = useState(1)
   let [artistRes , setArtistRes] = useState({ artists:[] })
-  let [searchVal, setSearchVal] = useState('alter');
+  let [searchVal, setSearchVal] = useState('');
   let [searchRes , setSearchRes] = useState({ search:[] })
 
   const url = `https://api.happi.dev/v1/music/artists?page=${artistVal}&apikey=${KEY}`;
   const srh = `https://api.happi.dev/v1/music?q=${searchVal}&limit=&apikey=${KEY}&type=`;
     useEffect( () => {
-      console.log("im fetching!")
       axios.get(url).then(res => {
         setArtistRes({ artists: res.data.result });
-          console.log(res.data.result)
         });
       } , [artistVal])
-
-
 
 
       // get the val 
       const getVal = (a) => {
         setArtistVal(a.target.innerHTML);
-        // console.log(parseInt(page))
-        // a.target.parentElement.children[parseInt(page)].classList.remove("active")
-        // a.target.classList.add("active");
       }
 
 
 
 
       useEffect( () => {
-        console.log("im Searching mate!")
         axios.get(srh).then(crh => {
           setSearchRes({ search: crh.data.result });
-            console.log(crh.data.result)
-  
           });
         } , [searchVal])
 
         const srhVal = (a) => {
           setSearchVal(a.target.value);
-          console.log(a.target.value)
-          // a.target.parentElement.children[parseInt(page)].classList.remove("active")
-          // a.target.classList.add("active");
         }
 
 
-
-
-// const fetchart = () => { }
-// axios.get(srh).then(res => {
-//   setState({ search: res.data.result });
-// });
-// useEffect(() => {
-//   console.log("effect")
-//   return () => {
-//     console.log("cleanup")
-//   };
-// });
 
         return (
           <Router>
@@ -109,7 +83,19 @@ const App = () => {
               </Route>
               <Route path="/search">
                 <input type="search" onChange={srhVal} />
-                {searchRes.search.map(srh =>  <Search key={srh.track} artist={srh.artist} album={srh.album}/>)}
+                {searchRes.search.map(srh =>  <Search 
+                key={srh.id_track} 
+                track={srh.track} 
+                artist={srh.artist} 
+                album={srh.album}
+                cover={srh.cover}
+                api_artist={srh.api_artist}
+                api_albums={srh.api_albums}
+                api_album={srh.api_album}
+                api_tracks={srh.api_tracks}
+                api_track={srh.api_track}
+                api_lyrics={srh.api_lyrics}
+                />)}
               </Route>
               <Route path="/">
                 this is jsut app for music
