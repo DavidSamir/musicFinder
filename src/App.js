@@ -56,13 +56,13 @@ const App = () => {
             <nav>
               <ul>
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/">Search</Link>
                 </li>
                 <li>
-                  <Link to="/artists">Artists</Link>
+                  <Link to="/artists">Artists List</Link>
                 </li>
                 <li>
-                  <Link to="/search">search</Link>
+                  {/* <Link to="/search">search</Link> */}
                 </li>
               </ul>
             </nav>
@@ -81,7 +81,7 @@ const App = () => {
                   </div>
                 </section>
               </Route>
-              <Route path="/search">
+              <Route path="/">
                 <input type="search" onChange={srhVal} />
                 {searchRes.search.map(srh =>  <Search 
                 key={srh.id_track} 
@@ -97,9 +97,9 @@ const App = () => {
                 api_lyrics={srh.api_lyrics}
                 />)}
               </Route>
-              <Route path="/">
+              {/* <Route path="/">
                 this is jsut app for music
-              </Route>
+              </Route> */}
             </Switch>
           </div>
                 </header>
